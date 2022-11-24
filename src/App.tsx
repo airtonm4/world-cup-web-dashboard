@@ -3,6 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const dadJokes = () => {
+    fetch('/api/dadjokes')
+      .then(response => console.log(response))
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,14 +16,9 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button className='App-link' onClick={() => dadJokes()}>
+          Click me
+        </button>
       </header>
     </div>
   );
