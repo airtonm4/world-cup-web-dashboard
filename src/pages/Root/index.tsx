@@ -1,11 +1,22 @@
 import { useState } from "react"
 import api from "../../utils/api"
 
+import headStyle from "./Header.module.css"
+
 export const Root = () => {
+  const [games, setGames] = useState<Array<any>>()
   const [punters, setPunters] = useState<Array<any>>()
 
-  const loadPunters = () => {
-    api.get("/api/punter").then(
+  const loadGames = () => {
+    api.get("/api/games").then(
+      (res) => {
+        console.log(res.data)
+        setGames(res.data)
+      }
+    )
+  }
+  const loadPunters = (gameId: number) => {
+    api.get(`/api/punter-by-game/${gameId}`).then(
       (res) => {
         console.log(res.data)
         setPunters(res.data)
@@ -13,29 +24,12 @@ export const Root = () => {
     )
   }
 
-  const dadJokes = () => {
-    fetch('/api/dadjokes')
-      .then(response => console.log(response))
-  };
-
-  /**
-   * TODO: Preciso terminar isso antes de mandar marcha.
-   */
   return (
-    <div>
-      <div>
-        Root page
+    <>
+      <div className={headStyle.header} />
+      <div className={headStyle.externa}>
+        <button className={headStyle.general_button}>Adicionar Jogos</button>
       </div>
-      <div>
-        <button onClick={() => loadPunters()}>Load punters</button>
-      </div>
-      <ul>
-        {punters?.map(
-          (element) => (
-            <li>{element.name}</li>
-          )
-        )}
-      </ul>
-    </div>
+    </>
   )
 }
