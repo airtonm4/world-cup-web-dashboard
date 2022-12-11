@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
 import { Tables } from "../../components/GamesTable"
 import { Header } from "../../components/Header"
@@ -10,10 +10,15 @@ export const Root = () => {
   const [games, setGames] = useState<Array<GameProps>>()
   const [punters, setPunters] = useState<Array<any>>()
 
+  const handleClick = useCallback(() => {
+    setTimeout(() => {
+      loadGames()
+    }, 100)
+  }, [])
+
   const loadGames = () => {
     api.get("/api/games").then(
       (res) => {
-        console.log(res.data)
         setGames(res.data)
       }
     )
@@ -30,6 +35,10 @@ export const Root = () => {
   useEffect(() => {
     loadGames()
   }, [])
+
+  useEffect(() => {
+    window.addEventListener("click", handleClick)
+  }, [handleClick])
 
   return (
     <div className="app">

@@ -7,10 +7,12 @@ export const Game = () => {
   const { game, setGame } = useGameContext()
 
   const saveGame = () => {
-    console.log(game)
     api.post("/api/game", game).then(
       (res) => {
-        console.log(res)
+        console.log(res.data)
+      },
+      (err) => {
+        console.log(err)
       }
     )
   }
