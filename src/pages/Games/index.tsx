@@ -9,16 +9,6 @@ import api from "../../utils/api"
 export const GamesPage = () => {
   // const [games, setGames] = useState<Array<GameProps>>()
   const { games, setGames } = useGlobalContext()
-  const [punters, setPunters] = useState<Array<any>>()
-
-  const loadPunters = (gameId: number) => {
-    api.get(`/api/punter-by-game/${gameId}`).then(
-      (res) => {
-        console.log(res.data)
-        setPunters(res.data)
-      }
-    )
-  }
 
   useEffect(() => {
     api.get("/api/games").then(
