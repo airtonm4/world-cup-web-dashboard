@@ -15,15 +15,17 @@ export const Tables = ({ games }: { games: Array<GameProps> | null }) => {
           </tr>
         </thead>
 
-        {games?.map((game) => {
-          return (
-            <tr>
-              <td>{game.firstTeam}</td>
-              <td>{game.secondTeam}</td>
-              <td>{game.result}</td>
-            </tr>
-          )
-        })}
+        <tbody>
+          {games?.map((game, index) => {
+            return (
+              <tr key={index}>
+                <td>{game.firstTeam}</td>
+                <td>{game.secondTeam}</td>
+                <td>{game.result}</td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
 
     </div>
