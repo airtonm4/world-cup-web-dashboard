@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
-import { Game } from "../../components/Games"
-import { GameProps, Tables } from "../../components/GamesTable"
+import { Tables } from "../../components/GamesTable"
 import { Header } from "../../components/Header"
+import { GameProps } from "../../contexts/GameContext"
 import api from "../../utils/api"
 
 
@@ -29,7 +29,7 @@ export const Root = () => {
 
   useEffect(() => {
     loadGames()
-  })
+  }, [])
 
   return (
     <div className="app">
