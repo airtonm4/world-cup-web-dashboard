@@ -22,7 +22,7 @@ export const Tables = ({ games }: { games: Array<GameProps> | null }) => {
         <tbody>
           {games?.map((game, index) => {
             return (
-              <tr key={index} onClick={() => navigate(`games/${game.id}`)}>
+              <tr key={index} onClick={() => navigate(`game/${game.id}`)}>
                 <td>{game.firstTeam}</td>
                 <td>{game.secondTeam}</td>
                 <td>{game.result}</td>
