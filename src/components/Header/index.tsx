@@ -7,7 +7,9 @@ export const Header = ({ navigateUrl, addText }: { navigateUrl: string, addText:
 
   return (
     <>
-      <div className={headStyle.header} />
+      <div className={headStyle.header}>
+        <button onClick={() => navigate("/")}>Back</button>
+      </div>
       <div className={headStyle.externa}>
         <button className={headStyle.general_button} onClick={() => { navigate(navigateUrl) }}>{addText}</button>
       </div>
