@@ -6,7 +6,7 @@ import { useGlobalContext } from "../../contexts/GlobalGameContext"
 import api from "../../utils/api"
 
 
-export const Root = () => {
+export const GamesPage = () => {
   // const [games, setGames] = useState<Array<GameProps>>()
   const { games, setGames } = useGlobalContext()
   const [punters, setPunters] = useState<Array<any>>()
