@@ -1,7 +1,8 @@
 import { useState } from "react"
+import { Header } from "../../components/Header"
 import api from "../../utils/api"
 
-import headStyle from "./Header.module.css"
+
 
 export const Root = () => {
   const [games, setGames] = useState<Array<any>>()
@@ -26,10 +27,7 @@ export const Root = () => {
 
   return (
     <>
-      <div className={headStyle.header} />
-      <div className={headStyle.externa}>
-        <button className={headStyle.general_button}>Adicionar Jogos</button>
-      </div>
+      <Header />
     </>
   )
 }
