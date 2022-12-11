@@ -11,9 +11,7 @@ export const Game = () => {
   const saveGame = () => {
     api.post("/api/game", game).then(
       (res) => {
-        console.log(res.data)
         games.push(res.data)
-        console.log(games)
         setGames(games)
       },
       (err) => {
