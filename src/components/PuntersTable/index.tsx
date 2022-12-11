@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { PunterProps } from "../../contexts/PunterContext"
 import { usePuntersContext } from "../../contexts/PuntersContext"
 import api from "../../utils/api"
@@ -9,8 +8,8 @@ export const PuntersTable = ({ punters }: { punters: Array<PunterProps> }) => {
 
   const { setPunters } = usePuntersContext()
 
-  const attPaid = (punter: PunterProps, id: number | null, index: number) => {
-    api.put(`/api/punter/${id}`, punter).then(
+  const attPaid = (punter: PunterProps, index: number) => {
+    api.put(`/api/punter/${punter.id}`, punter).then(
       (res) => {
         punters.splice(index, 1, res.data)
         setPunters(punters)
@@ -40,7 +39,7 @@ export const PuntersTable = ({ punters }: { punters: Array<PunterProps> }) => {
                       type="checkbox"
                       onChange={() => {
                         punter.paid = !punter.paid
-                        attPaid(punter, punter.id, index)
+                        attPaid(punter, index)
                       }}
                       checked={punter.paid}
                     />
