@@ -38,7 +38,6 @@ export const Punter = () => {
     api.post(`/api/punter/${id}`, data).then(
       (res) => {
         punters.push(data)
-        console.log(punters)
         setPunters(punters)
       }
     )
