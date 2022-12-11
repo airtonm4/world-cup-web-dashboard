@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Outlet, useParams } from "react-router-dom"
 import { Header } from "../../components/Header"
 import { PuntersTable } from "../../components/PuntersTable"
-import { PunterProps } from "../../contexts/PunterContext"
 import { usePuntersContext } from "../../contexts/PuntersContext"
 import api from "../../utils/api"
 
@@ -10,17 +9,7 @@ export const GameOverview = () => {
 
   const id = useParams().id
 
-  // const [punters, setPunters] = useState<Array<PunterProps>>()
   const { punters, setPunters } = usePuntersContext()
-
-  // const loadPunters = (gameId: number) => {
-  //   api.get(`/api/punter-by-game/${gameId}`).then(
-  //     (res) => {
-  //       console.log(res.data)
-  //       setPunters(res.data)
-  //     }
-  //   )
-  // }
 
   useEffect(() => {
     console.log(id)
@@ -30,6 +19,7 @@ export const GameOverview = () => {
         setPunters(res.data)
       }
     )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 
