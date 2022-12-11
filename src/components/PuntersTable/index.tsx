@@ -20,7 +20,7 @@ export const PuntersTable = ({ punters }: { punters: Array<PunterProps> }) => {
                 <tr key={index}>
                   <td>{punter.name}</td>
                   <td>{punter.guess}</td>
-                  <td>{punter.paid}</td>
+                  <td><input type="checkbox" checked={punter.paid} /></td>
                 </tr>
               )
             }
