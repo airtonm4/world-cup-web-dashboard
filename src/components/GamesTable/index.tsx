@@ -1,9 +1,9 @@
-import TableStyles from "./TableStyles.module.css"
-import Games from "../Games/Games.module.css"
-import { GameProps } from "../../contexts/GameContext"
 import { useNavigate } from "react-router-dom"
+import { GameProps } from "../../contexts/GameContext"
+import Games from "../Games/Games.module.css"
+import TableStyles from "./TableStyles.module.css"
 
-export const Tables = ({ games }: { games: Array<GameProps> | null }) => {
+export const GamesTable = ({ games }: { games: Array<GameProps> | null }) => {
 
   const navigate = useNavigate()
 

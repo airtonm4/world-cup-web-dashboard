@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Outlet } from "react-router-dom"
-import { Tables } from "../../components/GamesTable"
+import { GamesTable } from "../../components/GamesTable"
 import { Header } from "../../components/Header"
 import { useGlobalContext } from "../../contexts/GlobalGameContext"
 import api from "../../utils/api"
@@ -36,7 +36,7 @@ export const GamesPage = () => {
       </div>
       <div>
         {games !== undefined &&
-          <Tables games={games} />
+          <GamesTable games={games} />
         }
       </div>
     </div>
