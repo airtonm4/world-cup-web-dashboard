@@ -15,9 +15,9 @@ interface PunterContextProps {
   setPunter: Updater<PunterProps>
 }
 
-export const AddPunterContext = createContext({} as PunterContextProps)
+export const PunterContext = createContext({} as PunterContextProps)
 
-export const AddPunterProvider = ({ children }: { children: ReactNode }) => {
+export const PunterProvider = ({ children }: { children: ReactNode }) => {
   const [punter, setPunter] = useImmer<PunterProps>({
     id: null,
     game: {
@@ -32,13 +32,13 @@ export const AddPunterProvider = ({ children }: { children: ReactNode }) => {
   })
 
   return (
-    <AddPunterContext.Provider
+    <PunterContext.Provider
       value={{
         punter: punter,
         setPunter: setPunter
       }}
     >
       {children}
-    </AddPunterContext.Provider>
+    </PunterContext.Provider>
   )
 }
