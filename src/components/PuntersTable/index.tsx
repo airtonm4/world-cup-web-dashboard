@@ -2,7 +2,7 @@ import { PunterProps } from "../../contexts/PunterContext"
 import Games from "../Games/Games.module.css"
 import TableStyles from "../GamesTable/TableStyles.module.css"
 
-export const PuntersTable = (punters: Array<PunterProps>) => {
+export const PuntersTable = ({ punters }: { punters: Array<PunterProps> }) => {
   return (
     <div className={Games.box}>
       <table className={TableStyles.table}>
