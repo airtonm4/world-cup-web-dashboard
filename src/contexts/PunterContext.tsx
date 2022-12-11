@@ -7,7 +7,7 @@ export interface PunterProps {
   game: GameProps,
   name: string,
   guess: string,
-  paid: boolean | null
+  paid: boolean
 }
 
 interface PunterContextProps {
@@ -28,7 +28,7 @@ export const PunterProvider = ({ children }: { children: ReactNode }) => {
     },
     name: "",
     guess: "",
-    paid: null
+    paid: false
   })
 
   return (
