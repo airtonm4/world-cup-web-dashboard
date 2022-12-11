@@ -1,11 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { Outlet } from "react-router-dom"
+import { Game } from "../../components/Games"
+import { GameProps, Tables } from "../../components/GamesTable"
 import { Header } from "../../components/Header"
 import api from "../../utils/api"
 
 
-
 export const Root = () => {
-  const [games, setGames] = useState<Array<any>>()
+  const [games, setGames] = useState<Array<GameProps>>()
   const [punters, setPunters] = useState<Array<any>>()
 
   const loadGames = () => {
@@ -25,9 +27,21 @@ export const Root = () => {
     )
   }
 
+  useEffect(() => {
+    loadGames()
+  })
+
   return (
-    <>
+    <div className="app">
       <Header />
-    </>
+      <div>
+        <Outlet />
+      </div>
+      <div>
+        {games !== undefined &&
+          <Tables games={games} />
+        }
+      </div>
+    </div>
   )
 }
