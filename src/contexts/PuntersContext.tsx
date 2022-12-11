@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from "react";
-import { PunterProps } from "./AddPunterContext";
+import { PunterProps } from "./PunterContext";
 
 interface PuntersContextProps {
   punters: Array<PunterProps>,

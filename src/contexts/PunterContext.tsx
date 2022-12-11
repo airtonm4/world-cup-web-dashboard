@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode, useContext } from "react";
 import { Updater, useImmer } from "use-immer"
 import { GameProps } from "./GameContext";
 
@@ -41,4 +41,8 @@ export const PunterProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </PunterContext.Provider>
   )
+}
+
+export const usePunterContext = () => {
+  return useContext(PunterContext)
 }

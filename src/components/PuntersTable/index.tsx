@@ -1,4 +1,4 @@
-import { PunterProps } from "../../contexts/AddPunterContext"
+import { PunterProps } from "../../contexts/PunterContext"
 import Games from "../Games/Games.module.css"
 import TableStyles from "../GamesTable/TableStyles.module.css"
 
