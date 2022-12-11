@@ -1,12 +1,6 @@
 import TableStyles from "./TableStyles.module.css"
 import Games from "../Games/Games.module.css"
-
-export interface GameProps {
-  id: number,
-  firstTeam: string,
-  secondTeam: string,
-  result: string | null
-}
+import { GameProps } from "../../contexts/GameContext"
 
 export const Tables = ({ games }: { games: Array<GameProps> | null }) => {
   return (
