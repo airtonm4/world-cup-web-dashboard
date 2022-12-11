@@ -1,15 +1,20 @@
 import { useGameContext } from "../../contexts/GameContext"
+import { useGlobalContext } from "../../contexts/GlobalGameContext"
 import api from "../../utils/api"
 import Games from "./Games.module.css"
 
 export const Game = () => {
 
   const { game, setGame } = useGameContext()
+  const { games, setGames } = useGlobalContext()
 
   const saveGame = () => {
     api.post("/api/game", game).then(
       (res) => {
         console.log(res.data)
+        games.push(res.data)
+        console.log(games)
+        setGames(games)
       },
       (err) => {
         console.log(err)
