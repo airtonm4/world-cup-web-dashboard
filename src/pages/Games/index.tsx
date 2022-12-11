@@ -30,7 +30,7 @@ export const GamesPage = () => {
 
   return (
     <div className="app">
-      <Header />
+      <Header navigateUrl="add-game" addText="Adicionar Jogos" />
       <div>
         <Outlet />
       </div>

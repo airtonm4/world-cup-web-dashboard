@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import headStyle from "./Header.module.css"
 
-export const Header = () => {
+export const Header = ({ navigateUrl, addText }: { navigateUrl: string, addText: string }) => {
 
   const navigate = useNavigate()
 
@@ -9,7 +9,7 @@ export const Header = () => {
     <>
       <div className={headStyle.header} />
       <div className={headStyle.externa}>
-        <button className={headStyle.general_button} onClick={() => { navigate("add-game") }}>Adicionar Jogos</button>
+        <button className={headStyle.general_button} onClick={() => { navigate(navigateUrl) }}>{addText}</button>
       </div>
     </>
   )
