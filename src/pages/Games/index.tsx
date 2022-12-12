@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from "react"
 import { Outlet } from "react-router-dom"
 import { GamesTable } from "../../components/GamesTable"
 import { Header } from "../../components/Header"
@@ -7,7 +8,6 @@ import api from "../../utils/api"
 
 
 export const GamesPage = () => {
-  // const [games, setGames] = useState<Array<GameProps>>()
   const { games, setGames } = useGlobalContext()
 
   useEffect(() => {
